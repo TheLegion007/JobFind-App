@@ -1,3 +1,4 @@
+import { Logo } from "./components";
 import { Dashboard, Error, Landing, Register } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -5,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
+    {/* <Logo/> */}
       <Routes>
         <Route path='/' element={<Dashboard />}/>
         <Route path='landing' element={<Landing />}/>
