@@ -13,12 +13,24 @@ const Register = () => {
   const [values, setValues] = useState(initialState);
 
   const handleChange = (e) => {
-    console.log(e.target);
+    //console.log(e.target);
+    const name = e.target.name;
+    const value = e.target.value;
+    setValues({...values,[name]:value});
+
+    //console.log(`${name}:${value}`);
+    //console.log(`${name} :` + `${value}`);
+
   };
   
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    //console.log(e.target);
+    const {name, email, password, isMember} = values;
+    if(!email || !password || (!isMember || !name)) {
+        console.log("sf" , values);
+        console.log("Please fill out all fields !");
+    }
   };
 
   const toggleMember = () => {
@@ -41,7 +53,7 @@ const Register = () => {
         {/*email field*/}
         <FormRow type='email' name="email" value={values.email} handleChange={handleChange}/>
         {/*Password field*/}
-        <FormRow type='password' name="Password" value={values.password} handleChange={handleChange}/>
+        <FormRow type='password' name="password" value={values.password} handleChange={handleChange}/>
         <button type='submit' className='btn btn-block'>
           submit
         </button>
