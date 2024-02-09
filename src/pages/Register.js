@@ -46,7 +46,7 @@ const Register = () => {
 
   const toggleMember = () => {
       setValues({...values, isMember: !values.isMember});
-      console.log("values : " , values);
+      //console.log("values : " , values);
   };
 
 
