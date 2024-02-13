@@ -7,7 +7,7 @@ import { useDispatch, useSelector} from 'react-redux';
 
 
 const NavBar = () => {
-  const {user} = useSelector((store)=> store.redux);
+  const {user} = useSelector((store)=> store.user);
   const dispatch = useDispatch();
 
   return (
