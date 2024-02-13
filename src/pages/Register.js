@@ -15,7 +15,7 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
-  const {user, isLoading} = useSelector(store=>store.user);
+  const {user, isLoading} = useSelector(store=>store.user || {});
   const dispatch = useDispatch();
   const navigate = useNavigate();
  

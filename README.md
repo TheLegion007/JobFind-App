@@ -971,7 +971,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const { user } = useSelector((store) => store.user);
+  //const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   return (
