@@ -4,12 +4,14 @@ import Logo from './Logo';
 
 import { useDispatch, useSelector} from 'react-redux';
 import { toggleSidebar } from '../features/user/userSlice';
+import { useState } from 'react';
 
 
 
 const NavBar = () => {
   const {user} = useSelector((store)=> store.user);
   const dispatch = useDispatch();
+  const [showLogout, setShowLogout] = useState(false);
 
   const toggle = () => {
     dispatch(toggleSidebar());
@@ -26,12 +28,13 @@ const NavBar = () => {
             <h3 className="logo-text">Dashboard</h3>
         </div>
         <div className="btn-container">
-            <button type='button' className='btn' onClick={()=> console.log('toggle logout dropdown')}>
+            <button type='button' className='btn' onClick={()=> setShowLogout(!showLogout)}>
+                 {/* {console.log("showLogout: ", showLogout)} */}
                 <FaUserCircle/>
                 {user?.name}
                 <FaCaretDown/>
             </button>
-            <div className='dropdown show-dropdown'>
+            <div className={showLogout? 'dropdown show-dropdown': 'dropdown'}>
                 <button type="button" className='dropdown-btn' onClick={()=> console.log('logout user')}>
                     logout
                 </button>
