@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import { toggleSidebar } from '../features/user/userSlice';
+import links from '../utils/links';
 
 const SmallSideBar = () => {
   const { isSideBarOpen } = useSelector((store) => store.user);
@@ -24,7 +25,24 @@ const SmallSideBar = () => {
           <header>
             <Logo/>
           </header>
-          <div className='nav-links'>nav links</div>
+          <div className='nav-links'>
+            {links.map((link) => {
+                const {text, path, id, icon } = link;
+                return (
+                  <NavLink 
+                    to={path} 
+                    key={id} 
+                    onClick={toggle}
+                    className={({isActive}) => 
+                    isActive? 'nav-link active' : 'nav-link'
+                    }>
+                    <span className='icon'>{icon}</span>
+                    {text}
+                  </NavLink>
+                )
+            })
+            }
+          </div>
         </div>
       </div>
     </Wrapper>    
