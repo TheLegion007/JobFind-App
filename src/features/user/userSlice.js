@@ -6,7 +6,7 @@ import { addUserToLocalStorage, getUserFromLocalStorage , removeUserFromLocalSto
 const initialState = {
     isLoading: false,
     isSideBarOpen: false,
-    user: getUserFromLocalStorage(),
+    user: getUserFromLocalStorage(),            
 };
 
 export const registerUser = createAsyncThunk(
